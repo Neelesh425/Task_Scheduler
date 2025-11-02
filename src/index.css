@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #c3ecb2 0%, #7ee8fa 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* 🧾 Main Container */
+.to_do_list {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  margin-top: 4rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+/* ✨ Title */
+.to_do_list h2 {
+  margin-bottom: 1.5rem;
+  color: #222;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+/* 🖊 Input */
+.to_do_list input {
+  width: 65%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin-right: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.to_do_list input:focus {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 8px #7ee8fa;
+}
+
+/* ➕ Add Button */
+.add-button {
+  padding: 10px 18px;
+  background-color: #6ee7b7;
+  color: #222;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #34d399;
+  transform: scale(1.05);
+}
+
+/* 📜 Task Container */
+.container {
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 🧩 Individual Tasks */
+.ol li {
+  background: rgba(255, 255, 255, 0.7);
+  margin: 0.6rem 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.ol li:hover {
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* 📝 Task Text */
+.text {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #222;
+}
+
+/* 🎛 Buttons (up, down, delete) */
+.ol li button {
+  margin-left: 6px;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: #e0f7fa;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 1.1rem;
+}
+
+.ol li button:hover {
+  background-color: #a7f3d0;
+  transform: translateY(-2px);
+}
+
+/* 🗑 Delete Button Red Tone */
+.ol li button:last-child:hover {
+  background-color: #f87171;
+  color: #fff;
+}
+
+/* 💫 Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 500px) {
+  .to_do_list {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  .to_do_list input {
+    width: 60%;
+  }
+  .add-button {
+    padding: 8px 14px;
+  }
+}
