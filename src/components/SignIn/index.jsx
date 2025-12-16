@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import './index.scss';
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const { signin } = useAuth();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -17,20 +20,20 @@ const SignIn = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
 
-    // Basic validation
-    if (!formData.email || !formData.password) {
-      setError('Please fill in all fields');
-      return;
+    const result = await signin(formData);
+    
+    setLoading(false);
+
+    if (result.success) {
+      navigate('/todo');
+    } else {
+      setError(result.error);
     }
-
-    // Add your authentication logic here
-    // For now, just store in localStorage and navigate
-    localStorage.setItem('user', JSON.stringify({ email: formData.email }));
-    navigate('/todo');
   };
 
   return (
@@ -70,8 +73,8 @@ const SignIn = () => {
             />
           </div>
 
-          <button type="submit" className="signin__button">
-            Sign In
+          <button type="submit" className="signin__button" disabled={loading}>
+            {loading ? 'Signing In...' : 'Sign In'}
           </button>
 
           <div className="signin__footer">
