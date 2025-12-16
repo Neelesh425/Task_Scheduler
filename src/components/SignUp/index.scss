@@ -1,0 +1,144 @@
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+
+  &__container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 3rem;
+    width: 100%;
+    max-width: 450px;
+    animation: slideIn 0.5s ease;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2rem;
+      color: #2d3748;
+    }
+
+    p {
+      margin: 0;
+      color: #718096;
+      font-size: 0.95rem;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  &__error {
+    padding: 0.75rem;
+    background: #fed7d7;
+    color: #c53030;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  &__button {
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__footer {
+    text-align: center;
+    margin-top: 1rem;
+
+    p {
+      color: #718096;
+      font-size: 0.9rem;
+
+      a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-weight: 600;
+      color: #4a5568;
+      font-size: 0.9rem;
+    }
+
+    input {
+      padding: 0.875rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+
+      &::placeholder {
+        color: #cbd5e0;
+      }
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .signup {
+    &__container {
+      padding: 2rem;
+    }
+
+    &__form {
+      gap: 1rem;
+    }
+  }
+}

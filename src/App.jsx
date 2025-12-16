@@ -1,24 +1,28 @@
 import { useEffect } from 'react';
-import Layout from './components/Layout'
-import To_Do from './components/To_Do'
-import SiginIn from './components/signIn'
+import Layout from './components/Layout';
+import To_Do from './components/To_Do';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import TaskForm from './components/TaskForm';
+import TaskItem from './components/TaskItem';
 import { Route, Routes } from 'react-router-dom';
 
-function App(){
+function App() {
 
   useEffect(() => {
-    document.title = "Task_Schuduller"
-  })
+    document.title = "Task_Scheduler";
+  }, []);
 
-  return(
+  return (
     <>
       <Routes>
-        <Route path "/" element = {<Layout />}>
-        <Route element = {<SiginIn />} />
-        <Route element ={<To_Do />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<SignIn />} />
+          <Route path="todo" element={<To_Do />} />
         </Route>
       </Routes>
     </>
   );
 }
-export default App
+
+export default App;
