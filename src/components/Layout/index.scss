@@ -1,0 +1,25 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  &__content {
+    flex: 1;
+    padding: 2rem;
+    transition: margin-left 0.3s ease;
+
+    &.with-sidebar {
+      margin-left: 260px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    &__content {
+      &.with-sidebar {
+        margin-left: 0;
+      }
+    }
+  }
+}
