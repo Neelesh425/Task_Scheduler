@@ -28,7 +28,9 @@ api.interceptors.request.use(
 export const authAPI = {
   signup: (data) => api.post('/auth/signup', data),
   signin: (data) => api.post('/auth/signin', data),
-  getMe: () => api.get('/auth/me')
+  getMe: () => api.get('/auth/me'),
+  updateProfile: (data) => api.put('/auth/profile', data),
+  changePassword: (data) => api.put('/auth/password', data)
 };
 
 // Task APIs

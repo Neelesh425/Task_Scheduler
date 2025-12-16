@@ -6,6 +6,7 @@ import To_Do from './components/To_Do';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import ProtectedRoute from './components/ProtectedRoute';
+import Profile from './components/Profile';
 
 function App() {
   useEffect(() => {
@@ -24,7 +25,7 @@ function App() {
         </ProtectedRoute>
       }>
         <Route path="todo" element={<To_Do />} />
-        <Route path="profile" element={<div>Profile Page</div>} />
+        <Route path="profile" element={<Profile />} />
       </Route>
     </Routes>
   );
